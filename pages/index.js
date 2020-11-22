@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/home.module.scss'
+import { getAllPosts } from './lib/api'
 
-export default function Home() {
+export default function Index({ posts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +14,13 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <section className="posts">
+          {posts.map(post => (
+            <div className="text-lg font-bold">{post.data.title}</div>
+            
+          ))}
+        </section>
       </main>
 
       <footer className={styles.footer}>
@@ -27,4 +35,12 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const posts = getAllPosts()
+
+  return {
+    props: { posts }
+  }
 }
