@@ -1,8 +1,19 @@
 import Head from 'next/head'
 import styles from '../styles/home.module.scss'
 import { getAllPosts } from './lib/api'
+import mdToHtml from './lib/mdToHtml'
+import highlight from 'highlight.js'
+import php from 'highlight.js/lib/languages/php'
+import 'highlight.js/styles/dracula.css'
+import { useEffect } from 'react'
+
+highlight.registerLanguage('php', php)
 
 export default function Index({ posts }) {
+  useEffect(() => {
+    highlight.initHighlighting()
+  }, [])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,14 +22,12 @@ export default function Index({ posts }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
         <section className="posts">
           {posts.map(post => (
-            <div className="text-lg font-bold">{post.data.title}</div>
-            
+            <div key={post.data.slug} className="container max-w-2xl px-3 md:px-0 pb-10 mb-10 border-b border-gray-200">
+              <div className="text-5xl font-semibold mb-4">{ post.data.title }</div>
+              <div className="content" dangerouslySetInnerHTML={{__html: post.content }}></div>
+            </div>
           ))}
         </section>
       </main>
@@ -38,9 +47,15 @@ export default function Index({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts()
+  let posts = getAllPosts()
+  
+  return Promise.all(posts.map(async post => {
+    post.content = await mdToHtml(post.content)
 
-  return {
-    props: { posts }
-  }
+    return post
+  })).then(posts => {
+    return {
+      props: { posts }
+    }
+  })
 }

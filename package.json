@@ -18,8 +18,12 @@
     "sass": "^1.29.0"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "autoprefixer": "^10.0.2",
+    "highlight.js": "^10.4.0",
     "postcss": "^8.1.9",
+    "postcss-import": "^13.0.0",
+    "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.1"
   }
 }

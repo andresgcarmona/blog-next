@@ -14,6 +14,8 @@ export function getPostBySlug(slug) {
   const fileContent = fs.readFileSync(path, 'utf8')
   const { data, content } = matter(fileContent)
 
+  data.slug = filename
+
   const items = {}
 
   return { data, content }
