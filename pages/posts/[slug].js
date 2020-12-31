@@ -8,9 +8,19 @@ import PostHeader from '../../components/post-header'
 import PostBody from '../../components/post-body'
 import mdToHtml from '../../lib/mdToHtml'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { getAllPosts, getPostBySlug } from '../../lib/api'
+import highlight from 'highlight.js'
+import php from 'highlight.js/lib/languages/php'
+import 'highlight.js/styles/dracula.css'
+
+highlight.registerLanguage('php', php)
 
 export default function Post({ post, morePosts, preview }) {
+  useEffect(() => {
+    highlight.initHighlighting()
+  }, [])
+  
   const router = useRouter()
   
   if (!router.isFallback && !post?.slug) {

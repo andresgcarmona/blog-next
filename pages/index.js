@@ -1,21 +1,13 @@
 import Head from 'next/head'
 import { getAllPosts } from '../lib/api'
-import highlight from 'highlight.js'
-import php from 'highlight.js/lib/languages/php'
-import 'highlight.js/styles/dracula.css'
-import { useEffect } from 'react'
 import UserHeader from '../components/user-header'
 import Layout from '../components/layout'
 import Container from '../components/container'
 import Link from 'next/link'
-
-highlight.registerLanguage('php', php)
+import DateFormatter from '../components/date-formatter'
+import Header from '../components/header'
 
 export default function Index({ posts }) {
-	useEffect(() => {
-		highlight.initHighlighting()
-	}, [])
-	
 	const heroPost  = posts[0]
 	const morePosts = posts.slice(1)
 	
@@ -35,8 +27,11 @@ export default function Index({ posts }) {
 							<div key={post.slug} className="container max-w-2xl px-3 md:px-0 pt-10 mt-10 border-t border-gray-200">
 								<div className="mb-4">
 									<Link as={`/posts/${post.slug}`} href="/posts/[slug]">
-										<a className="text-2xl font-semibold text-gray-800 hover:text-gray-900 transition duration-150">{post.title}</a>
+										<a className="text-3xl font-semibold text-gray-800 hover:text-indigo-700 transition duration-150">{post.title}</a>
 									</Link>
+									<div className="mt-2 mb-6 text-gray-500 text-sm">
+										<DateFormatter dateString={post.date} />
+									</div>
 								</div>
 								{/* <div className="content" dangerouslySetInnerHTML={{__html: post.content }}></div> */}
 								<div className="text-gray-600">{post.excerpt}</div>

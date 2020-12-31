@@ -7,9 +7,6 @@ export default function Header() {
         <Link href="/">
           <a className="text-black hover:text-gray-600 hover:underline mr-3">Home</a>
         </Link>
-        <Link href="/blog">
-          <a className="text-black hover:text-gray-600 hover:underline mr-3">Blog</a>
-        </Link>
       </nav>
     </div>
   )
