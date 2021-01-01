@@ -24,7 +24,7 @@ export default function Post({ post, morePosts, preview }) {
         {router.isFallback ? (
           <PostTitle>Loading...</PostTitle>
         ) : (
-          <article className="mb-32">
+          <article className="mb-32 w-full">
             <Head>
               <title>{post.title} | Blog</title>
               <meta property="og:image" content={post.ogImage.url} />

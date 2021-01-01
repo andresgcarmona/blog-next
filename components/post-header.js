@@ -7,6 +7,9 @@ export default function PostHeader({ title, coverImage, date, author }) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
+      <div className="mb-3 text-lg text-gray-500">
+        <DateFormatter dateString={date} />
+      </div>
       <div className="hidden md:block md:mb-12">
         <Author name={author.name} picture={author.picture} size={'sm'} />
       </div>
@@ -16,9 +19,6 @@ export default function PostHeader({ title, coverImage, date, author }) {
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">
           <Author name={author.name} picture={author.picture} />
-        </div>
-        <div className="mb-6 text-lg text-gray-500">
-          <DateFormatter dateString={date} />
         </div>
       </div>
     </>

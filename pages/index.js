@@ -24,7 +24,7 @@ export default function Index({ posts }) {
 					
 					<section className="posts">
 						{posts.map(post => (
-							<div key={post.slug} className="container max-w-2xl px-3 md:px-0 pt-10 mt-10 border-t border-gray-200">
+							<div key={post.slug} className="container max-w-2xl px-3 md:px-0 pt-6 mt-6 border-t border-gray-200">
 								<div className="mb-4">
 									<Link as={`/posts/${post.slug}`} href="/posts/[slug]">
 										<a className="text-3xl font-semibold text-gray-800 hover:text-indigo-700 transition duration-150">{post.title}</a>

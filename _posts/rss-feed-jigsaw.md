@@ -1,7 +1,7 @@
 ---
 title: 'Implementing RSS feed in Jigsaw'
 excerpt: 'Really Simple Syndication or RSS for short is a protocol that provides a method for aggregating web content. It is also a standard that defines the structure of a file (XML) for content publishing. The XML should conform to the WC3 RDF specification'
-date: '2020-03-17T05:35:07.322Z'
+date: '2020-05-04T05:35:07.322Z'
 author:
   name: Andres Carmona
   picture: '/assets/me.jpeg'
