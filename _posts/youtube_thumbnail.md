@@ -9,7 +9,8 @@ ogImage:
   url: '/assets/blog/hello-world/cover.jpg'
 ---
 
-![Youtube](/assets/images/tils/youtube_thumbnails.png "Youtube thumbnails")
+![Youtube](/assets/blog/tils/youtube_thumbnails.png "Youtube thumbnails")
+
 Each YouTube video has four generated images. They are predictably formatted as follows:
 
 ```html
