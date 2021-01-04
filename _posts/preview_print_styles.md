@@ -21,4 +21,4 @@ Select `Show rendering` to show the `Rendering tab` and in the `Emulate CSS medi
 
 ![Emulate CSS media type](/assets/blog/tils/preview_print_styles.png "Emulate CSS type")
 
-Founded at [Eric L. Barnes' blog](https://ericlbarnes.com/2020/05/22/a-quick-tip-for-working-with-print-styles/	)
+Found at [Eric L. Barnes' blog](https://ericlbarnes.com/2020/05/22/a-quick-tip-for-working-with-print-styles/	)
