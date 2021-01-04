@@ -5,7 +5,7 @@ import Author from './author'
 
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
-    <>
+    <div className="max-w-4xl mx-auto">
       <PostTitle>{title}</PostTitle>
       <div className="mb-3 text-lg text-gray-500">
         <DateFormatter dateString={date} />
@@ -21,6 +21,6 @@ export default function PostHeader({ title, coverImage, date, author }) {
           <Author name={author.name} picture={author.picture} />
         </div>
       </div>
-    </>
+    </div>
   )
 }
